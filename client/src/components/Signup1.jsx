@@ -21,9 +21,15 @@ const Signup1 = () => {
       const response = await axios.post(
         "https://crowdfunding-complete-aeqp.vercel.app/signup",
         {
-          name,
-          email,
-          password,
+          headers: {
+            "Content-Type": "application/json",
+            "Access-Control-Allow-Origin": "*",
+          },
+          body: JSON.stringify({
+            name,
+            email,
+            password,
+          }),
         }
       );
       response.data && window.location.replace("/login");
