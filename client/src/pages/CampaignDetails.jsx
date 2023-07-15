@@ -32,7 +32,7 @@ const CampaignDetails = () => {
     setIsLoading(true);
     console.log(state.state.pId);
     await donate(state.state.pId, amount);
-    history.push("/");
+    history.push("/home");
     setIsLoading(false);
   };
 
