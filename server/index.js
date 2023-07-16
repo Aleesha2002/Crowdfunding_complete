@@ -11,10 +11,7 @@ dotenv.config();
 const app = express();
 
 app.use((req, res, next) => {
-  res.header(
-    "Access-Control-Allow-Origin",
-    "https://crowdfunding-complete-od44.vercel.app/"
-  ); // Replace this with your actual frontend domain in production
+  res.header("Access-Control-Allow-Origin", "*"); // Replace this with your actual frontend domain in production
   res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS"); // Specify the allowed HTTP methods
   res.header("Access-Control-Allow-Headers", "Content-Type, Authorization"); // Specify the allowed request headers
 
