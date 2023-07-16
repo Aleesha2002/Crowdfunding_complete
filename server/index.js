@@ -12,7 +12,7 @@ const app = express();
 
 app.use(
   cors({
-    origin: "*",
+    origin: "https://crowdfunding-complete-od44.vercel.app",
   })
 );
 app.use(bodyParser.urlencoded({ extended: true }));
