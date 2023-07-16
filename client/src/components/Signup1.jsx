@@ -19,17 +19,11 @@ const Signup1 = () => {
     try {
       console.log("signup");
       const response = await axios.post(
-        "https://crowdfunding-complete-aeqp.vercel.app/signup",
+        "https://btp-server.onrender.com/signup",
         {
-          headers: {
-            "Content-Type": "application/json",
-            "Access-Control-Allow-Origin": "*",
-          },
-          body: JSON.stringify({
-            name,
-            email,
-            password,
-          }),
+          name,
+          email,
+          password,
         }
       );
       response.data && window.location.replace("/login");

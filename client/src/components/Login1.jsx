@@ -56,14 +56,30 @@ const Login1 = () => {
     e.preventDefault();
     dispatch({ type: "LOGIN_START" });
     try {
-      const config = { headers: { type: "application/json" } };
+      const config = {
+        headers: {
+          type: "application/json",
+          //Access-Control-Allow-Origin: "*",
+        },
+      };
+      // const response = await axios("https://btp-server.onrender.com/login", {
+      //   method: "POST",
+      //   headers: {
+      //     "Content-Type": "application/json",
+      //     //"Access-Control-Allow-Origin": "http://localhost:3000",
+      //   },
+      //   body: JSON.stringify({
+      //     email,
+      //     password: pass,
+      //   }),
+      // });
       const response = await axios.post(
-        "https://crowdfunding-complete-aeqp.vercel.app/login",
+        "https://btp-server.onrender.com/login",
         {
           email: email,
           password: pass,
-        },
-        config
+        }
+        // config
       );
       console.log(response);
       const { data } = response; // Destructure 'data' property from response
