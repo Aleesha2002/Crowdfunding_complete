@@ -77,7 +77,7 @@ app.post("/signup", async (req, res) => {
       await newUser.save();
       let token = "";
       if (newUser) {
-        token = jwt.sign({ id: newUser._id }, process.env.JWT_SECRET);
+        token = jwt.sign({ id: newUser._id }, "Crowdfunding");
         res.cookie("token", token);
       }
       res.status(200).json({
@@ -120,7 +120,7 @@ app.post("/login", async (req, res) => {
 
     const token = jwt.sign(
       { id: user._id, isAdmin: user.isAdmin },
-      process.env.JWT_SECRET
+      "Crowdfunding"
     );
     const { password, isAdmin, ...otherDetails } = user._doc;
     console.log("login success");
