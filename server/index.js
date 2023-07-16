@@ -36,6 +36,9 @@ mongoose
     console.log(err);
   });
 
+app.get("/", async (req, res) => {
+  res.send("Server running");
+});
 const validatePassword = (password) => {
   const regex = /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
   return regex.test(password);
