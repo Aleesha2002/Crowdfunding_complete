@@ -9,6 +9,7 @@ import axios from "axios";
 import { useContext } from "react";
 import { Context } from "../context/Context";
 import { Link, useHistory } from "react-router-dom";
+import Loader from "./Loader";
 
 const Login1 = () => {
   // const userRef = useRef();
@@ -16,6 +17,7 @@ const Login1 = () => {
 
   const [email, setemail] = useState("");
   const [pass, setpass] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
   const { dispatch, isFetching } = useContext(Context);
   const history = useHistory();
   // console.log(userRef.current.value,passwordRef.current.value)
@@ -73,6 +75,7 @@ const Login1 = () => {
       //     password: pass,
       //   }),
       // });
+      setIsLoading(true);
       const response = await axios.post(
         "https://btp-server.onrender.com/login",
         {
@@ -81,6 +84,7 @@ const Login1 = () => {
         }
         // config
       );
+      setIsLoading(false);
       console.log(response);
       const { data } = response; // Destructure 'data' property from response
       console.log(data);
@@ -94,6 +98,7 @@ const Login1 = () => {
 
   return (
     <div className="xl:mt-12 xl:flex-row flex-col-reverse flex gap-10 overflow-hidden">
+      {isLoading && <Loader name="Logging in" />}
       <motion.dev
         variants={slideIn("left", "tween", 0.2, 1)}
         className="flex-[0.75] bg-black-100 p-8 rounded-2xl "

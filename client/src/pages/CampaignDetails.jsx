@@ -9,10 +9,12 @@ import { thirdweb } from "../assets";
 const CampaignDetails = () => {
   const { state } = useLocation();
   const history = useHistory();
-  const { donate, getDonations, contract, address } = useStateContext();
+  const { donate, getDonations, contract, address, name1, getNames } =
+    useStateContext();
   const [isLoading, setIsLoading] = useState(false);
   const [amount, setAmount] = useState("");
   const [donators, setDonators] = useState([]);
+  const [name, setName] = useState([]);
 
   const remainingDays = daysLeft(state.state.deadline);
   console.log(state);
@@ -32,7 +34,7 @@ const CampaignDetails = () => {
     setIsLoading(true);
     console.log(state.state.pId);
     await donate(state.state.pId, amount);
-    history.push("/home");
+    history.push("/");
     setIsLoading(false);
   };
 
@@ -61,7 +63,10 @@ const CampaignDetails = () => {
         </div>
 
         <div className="flex md:w-[150px] w-full flex-wrap justify-between gap-[30px]">
-          <CountBox title="Days Left" value={remainingDays} />
+          <CountBox
+            title="Days Left"
+            value={remainingDays > 0 ? remainingDays : "Over"}
+          />
           <CountBox
             title={`Raised of ${state.state.target}`}
             value={state.state.amountCollected}
@@ -73,7 +78,7 @@ const CampaignDetails = () => {
       <div className="mt-[60px] flex lg:flex-row flex-col gap-5">
         <div className="flex-[2] flex flex-col gap-[40px]">
           <div>
-            <h4 className="font-epilogue font-semibold text-[18px] text-white uppercase">
+            <h4 className="mb-[10px] font-epilogue font-semibold text-[18px] text-white uppercase">
               Creator
             </h4>
 
@@ -86,8 +91,11 @@ const CampaignDetails = () => {
                 />
               </div>
               <div>
+                <h4 className="mt-[10px] font-epilogue font-semibold text-[14px] text-white break-all">
+                  Name : {state.state.name}
+                </h4>
                 <h4 className="font-epilogue font-semibold text-[14px] text-white break-all">
-                  {state.state.owner}
+                  Wallet : {state.state.owner}
                 </h4>
                 <p className="mt-[4px] font-epilogue font-normal text-[12px] text-[#808191]">
                   10 Campaigns
@@ -153,6 +161,14 @@ const CampaignDetails = () => {
                 value={amount}
                 onChange={(e) => setAmount(e.target.value)}
               />
+              {/* <input
+                type="text"
+                placeholder="Name"
+                // step="0.01"
+                className="mt-[20px] w-full py-[10px] sm:px-[20px] px-[15px] outline-none border-[1px] border-[#3a3a43] bg-transparent font-epilogue text-white text-[18px] leading-[30px] placeholder:text-[#4b5264] rounded-[10px] "
+                value={name}
+                onChange={(e) => setName(e.target.name)}
+              /> */}
               <div className="my-[20px] p-4 bg-[#13131a] rounded-[10px]  ">
                 <h4 className="font-epilogue font-semibold text-[14px] leading-[22px] text-white ">
                   Back it because you believe in it

@@ -6,10 +6,12 @@ import { SectionWrapper } from "../hoc";
 import { slideIn } from "../utils/motion";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import Loader from "./Loader";
 
 const Signup1 = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
   const [password, setPassword] = useState("");
   const [error, setError] = useState(false);
 
@@ -18,6 +20,7 @@ const Signup1 = () => {
     setError(false);
     try {
       console.log("signup");
+      setIsLoading(true);
       const response = await axios.post(
         "https://btp-server.onrender.com/signup",
         {
@@ -26,6 +29,7 @@ const Signup1 = () => {
           password,
         }
       );
+      setIsLoading(false);
       response.data && window.location.replace("/login");
     } catch (err) {
       setError(true);
@@ -35,6 +39,7 @@ const Signup1 = () => {
 
   return (
     <div className="xl:mt-12 xl:flex-row flex-col-reverse flex gap-10 overflow-hidden">
+      {isLoading && <Loader name="Signing in" />}
       <motion.dev
         variants={slideIn("left", "tween", 0.2, 1)}
         className="flex-[0.75] bg-black-100 p-8 rounded-2xl "

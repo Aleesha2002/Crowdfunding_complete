@@ -14,7 +14,7 @@ const FundCard = ({
   handleClick,
 }) => {
   const remainingDays = daysLeft(deadline);
-  if (remainingDays < 0) {
+  if (remainingDays > 0) {
     return null;
   } else {
     return (
@@ -61,7 +61,8 @@ const FundCard = ({
 
             <div className="flex flex-col">
               <h4 className="font-epilogue font-semibold text-[14px] text-[#b2b3bd] leading-[22px]">
-                {remainingDays}
+                {/* {remainingDays} */}
+                Campaign Ended
               </h4>
               <p className="mt-[3px] font-epilogue font-normal text-[12px] leading-[18px] text-[#808191] sm:max-w-[120px] truncate">
                 Days Left
@@ -81,9 +82,6 @@ const FundCard = ({
               by <span className="text-[#b2b3bd]">{name}</span> <br />
               Wallet id:- <span className="text-[#b2b3bd]">{owner}</span>{" "}
             </p>
-            {/* <p className="flex-1 font-epilogue font-normal text-[12px] text-[#808191] truncate ">
-              Wallet id <span className="text-[#b2b3bd]">{owner}</span>{" "}
-            </p> */}
           </div>
         </div>
       </div>

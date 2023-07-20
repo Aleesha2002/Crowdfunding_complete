@@ -11,8 +11,11 @@ import { EditionMetadataWithOwnerOutputSchema } from "@thirdweb-dev/sdk";
 const StateContext = createContext();
 
 export const StateContextProvider = ({ children }) => {
+  // const { contract } = useContract(
+  //   "0x1d0C504cc636a9B38181e90c4C108a0c2581056C"
+  // );
   const { contract } = useContract(
-    "0x1d0C504cc636a9B38181e90c4C108a0c2581056C"
+    "0x76425A18b1AcDF82BDD0b9E94129467B7Ea2DAf4"
   );
   const { mutateAsync: createCampaign } = useContractWrite(
     contract,
@@ -29,6 +32,7 @@ export const StateContextProvider = ({ children }) => {
     try {
       const data = await createCampaign({
         args: [
+          form.name,
           address,
           form.title,
           form.description,
@@ -50,6 +54,7 @@ export const StateContextProvider = ({ children }) => {
     const campaigns = await contract.call("getCampaigns");
 
     const parsedCampaigns = campaigns.map((campaign, i) => ({
+      name: campaign.name,
       owner: campaign.owner,
       title: campaign.title,
       description: campaign.description,
@@ -89,6 +94,7 @@ export const StateContextProvider = ({ children }) => {
     const parsedDonations = [];
     for (let i = 0; i < numberOfDonations; i++) {
       parsedDonations.push({
+        name: donations[2][i],
         donator: donations[0][i],
         donation: ethers.utils.formatEther(donations[1][i].toString()),
       });

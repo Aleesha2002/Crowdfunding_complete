@@ -13,7 +13,13 @@ import { Signup1, StarsCanvas, About, Contact } from "./components";
 import Login1 from "./components/Login1";
 import { Context } from "./context/Context";
 import { Sidebar, Navbar1 } from "./components";
-import { CampaignDetails, CreateCampaign, Home, Profile } from "./pages/index";
+import {
+  CampaignDetails,
+  CreateCampaign,
+  Home,
+  Profile,
+  PastCampaigns,
+} from "./pages/index";
 function App() {
   const { user, dispatch } = useContext(Context);
   // const history = useHistory();
@@ -40,6 +46,27 @@ function App() {
         <Route path="/home">
           {user ? (
             <App_campaign />
+          ) : (
+            <div className="relative z-0 bg-primary1">
+              <div className="relative z-0">
+                <Login1 />
+                <StarsCanvas />
+              </div>
+            </div>
+          )}
+        </Route>
+
+        <Route path="/past-campaigns">
+          {user ? (
+            <div className="relative sm:-8 p-4 bg-[#13131a] min-h-screen flex flex-row">
+              <div className="sm:flex hidden mr-10 relative">
+                <Sidebar />
+              </div>
+              <div className="flex-1 max-sm:w-full max-w-[1280px] mx-auto sm:pr-5">
+                <Navbar1 />
+                <PastCampaigns />
+              </div>
+            </div>
           ) : (
             <div className="relative z-0 bg-primary1">
               <div className="relative z-0">

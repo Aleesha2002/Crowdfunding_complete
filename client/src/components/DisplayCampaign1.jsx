@@ -1,7 +1,7 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
 import { loader } from "../assets";
-import FundCard from "../components/FundCard";
+import FundCard1 from "../components/FundCard1";
 import { daysLeft } from "../utils";
 
 const DisplayCampaigns = ({ title, isLoading, campaigns }) => {
@@ -20,11 +20,10 @@ const DisplayCampaigns = ({ title, isLoading, campaigns }) => {
   const handleNavigate = (campaign) => {
     history.push(`/campaign-details/${campaign.title}`, { state: campaign });
   };
-  // console.log({name});
   return (
     <div>
       <h1 className="font-epilogue font-semibold text-[18px] text-white text-left">
-        {title} ({count})
+        Past Campaigns ({count})
       </h1>
 
       <div className="flex flex-wrap mt-[20px] gap-[26px]">
@@ -45,7 +44,7 @@ const DisplayCampaigns = ({ title, isLoading, campaigns }) => {
           campaigns.map(
             (campaign) =>
               daysLeft(campaign.deadline) && (
-                <FundCard
+                <FundCard1
                   key={campaign.id}
                   {...campaign}
                   handleClick={() => handleNavigate(campaign)}

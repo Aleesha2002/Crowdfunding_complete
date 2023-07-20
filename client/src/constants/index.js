@@ -18,7 +18,11 @@ import {
   dropbox,
   send,
   shield,
+  aleesha,
+  prasun,
   star,
+  rotaract,
+  sairohan,
 } from "../assets";
 
 export const navLinks = [
@@ -67,26 +71,26 @@ export const feedback = [
   {
     id: "feedback-1",
     content:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
-    name: "Herman Jensen",
+      " we have woven a vision – a vision that believes in the profound impact of even the tiniest gestures. With unwavering faith, we embrace the power of collective goodness, creating a sanctuary where healing begins and heroes emerge",
+    name: "Prasun Mondal",
     title: "Founder & Leader",
-    img: people01,
+    img: prasun,
   },
   {
     id: "feedback-2",
     content:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
-    name: "Steve Mark",
+      "Our community ignites a wildfire of positive change, celebrating compassion, resilience, and transformation. Together, we inspire each other to be the heroes this world craves, threading a tapestry of strength found within vulnerability.",
+    name: "Aleesha Lalit",
     title: "Founder & Leader",
-    img: people02,
+    img: aleesha,
   },
   {
     id: "feedback-3",
     content:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
-    name: "Kenn Gallagher",
+      "In the depths of our souls, we carry the seeds of greatness, waiting to bloom and paint the world with colors of courage, kindness, and boundless possibility. United by purpose, we nurture each other's dreams, breathing life into the symphony of our collective triumphs.",
+    name: "Sai Rohan",
     title: "Founder & Leader",
-    img: people03,
+    img: sairohan,
   },
 ];
 
@@ -178,22 +182,22 @@ export const socialMedia = [
   {
     id: "social-media-1",
     icon: instagram,
-    link: "https://www.instagram.com/",
+    link: "https://www.instagram.com/rotaractiiitm/",
   },
   {
     id: "social-media-2",
     icon: facebook,
-    link: "https://www.facebook.com/",
+    link: "https://www.facebook.com/rotaractiiitm/",
   },
-  {
-    id: "social-media-3",
-    icon: twitter,
-    link: "https://www.twitter.com/",
-  },
+  // {
+  //   id: "social-media-3",
+  //   icon: rotaract,
+  //   link: "https://linktr.ee/rotaract_iiitmg",
+  // },
   {
     id: "social-media-4",
     icon: linkedin,
-    link: "https://www.linkedin.com/",
+    link: "https://www.linkedin.com/company/rotaract-club-abv-iiitm/",
   },
 ];
 
@@ -245,6 +249,12 @@ export const navlinks = [
     name: "profile",
     imgUrl: profile,
     link: "/profile",
+    done: "false",
+  },
+  {
+    name: "past-campaigns",
+    imgUrl: withdraw,
+    link: "/past-campaigns",
     done: "false",
   },
   {

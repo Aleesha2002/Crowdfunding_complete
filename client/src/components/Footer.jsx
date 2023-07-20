@@ -1,5 +1,5 @@
 import React from "react";
-import { logo } from "../assets";
+import { logo, rotaract } from "../assets";
 import styles from "../style";
 import { footerLinks, socialMedia } from "../constants";
 
@@ -9,15 +9,22 @@ const Footer = () => {
       <div className={`${styles.flexStart} md:flex-row flex-col mb-8 w-full`}>
         <div className="flex-1 flex flex-col justify-start mr-10">
           <img
-            src={logo}
+            src={rotaract}
             alt="logo"
-            className="w-[266px] h-[72px] object-contain "
+            className="w-[400px] h-[150px] object-contain "
           />
-          <p
-            className={`${styles.paragraph} mt-4 max-w-[310px] text-[#ededed] `}
-          >
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit
-          </p>
+          <div>
+            <p
+              className={`${styles.paragraph} ml-[75px] mt-4 max-w-[310px] text-[#ededed] `}
+            >
+              We can't help everyone but,
+            </p>
+            <p
+              className={`${styles.paragraph} ml-[75px] mt-4 max-w-[310px] text-[#ededed] `}
+            >
+              everyone can help someone
+            </p>
+          </div>
         </div>
 
         <div className="flex-[1.5] w-full flex flex-row justify-between flex-wrap md:mt-0 mt-10 ">
@@ -52,14 +59,16 @@ const Footer = () => {
 
         <div className="flex flex-row md:mt-0 mt-6">
           {socialMedia.map((social, index) => (
-            <img
-              key={social.id}
-              src={social.icon}
-              alt={social.id}
-              className={`w-[21px] h-[21px] object-contain cursor-pointer ${
-                index !== socialMedia.length - 1 ? "mr-6" : "mr-0"
-              }`}
-            />
+            <a href={social.link}>
+              <img
+                key={social.id}
+                src={social.icon}
+                alt={social.id}
+                className={`w-[21px] h-[21px] object-contain cursor-pointer ${
+                  index !== socialMedia.length - 1 ? "mr-6" : "mr-0"
+                }`}
+              />
+            </a>
           ))}
         </div>
       </div>

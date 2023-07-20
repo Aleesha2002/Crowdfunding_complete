@@ -1,6 +1,7 @@
 import createCampaign from "./create-campaign.svg";
 import dashboard from "./dashboard.svg";
 import logo from "./logo.svg";
+import logo2 from "./logo2.png";
 import logout from "./logout.svg";
 import payment from "./payment.svg";
 import profile from "./profile.svg";
@@ -11,6 +12,9 @@ import search from "./search.svg";
 import money from "./money.svg";
 import loader from "./loader.svg";
 import thirdweb from "./thirdweb.png";
+import kids from "./kids.jpg";
+import rotohero from "./rotohero.jpg";
+import sairohan from "./sairohan.jpg";
 
 import airbnb from "./airbnb.png";
 import bill from "./bill.png";
@@ -37,6 +41,10 @@ import people01 from "./people01.png";
 import people02 from "./people02.png";
 import people03 from "./people03.png";
 
+import rotaract from "./rotaract_blue.png";
+import middday from "./cutted_midday.jpg";
+import prasun from "./prasun.jpg";
+import aleesha from "./aleesha.jpg";
 export {
   airbnb,
   bill,
@@ -75,4 +83,12 @@ export {
   money,
   loader,
   thirdweb,
+  rotaract,
+  middday,
+  prasun,
+  aleesha,
+  logo2,
+  kids,
+  rotohero,
+  sairohan,
 };

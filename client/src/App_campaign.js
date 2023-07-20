@@ -1,7 +1,13 @@
 import React from "react";
 import { Route, BrowserRouter } from "react-router-dom";
 import { Sidebar, Navbar1 } from "./components";
-import { CampaignDetails, CreateCampaign, Home, Profile } from "./pages/index";
+import {
+  CampaignDetails,
+  CreateCampaign,
+  Home,
+  Profile,
+  PastCampaigns,
+} from "./pages/index";
 const App_campaign = () => {
   return (
     <div className="relative sm:-8 p-4 bg-[#13131a] min-h-screen flex flex-row">
@@ -22,6 +28,9 @@ const App_campaign = () => {
           </Route>
           <Route path="/campaign-details/:id">
             <CampaignDetails />
+          </Route>
+          <Route path="/past-campaign">
+            <PastCampaigns />
           </Route>
         </BrowserRouter>
       </div>

@@ -1,16 +1,23 @@
 import React, { useState, useEffect } from "react";
-import { close, logo, menu } from "../assets";
+import { close, logo2, menu, rotaract } from "../assets";
 import { navLinks } from "../constants";
 import { Link } from "react-router-dom";
 import styles from "../style";
 import Button from "./Button_signup";
+//import logo1 from "../assets/"
 
 const Navbar = () => {
   const [toggle, setToggle] = useState(false);
 
   return (
     <nav className="w-full flex py-6 justify-between items-center navbar">
-      <img src={logo} alt="RotoFund" className="w-[124px] h-[32px]" />
+      <img
+        src={rotaract}
+        //src={logo2}
+        alt="RotoFund"
+        //className="w-[124px] h-[32px] object-contain"
+        className="w-[124px] h-[150px] "
+      />
       <ul className="list-none sm:flex hidden justify-end items-center flex-1">
         {navLinks.map((nav, index) => (
           <li
