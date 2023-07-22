@@ -1,12 +1,12 @@
-import createCampaign from "./create-campaign.svg";
-import dashboard from "./dashboard.svg";
+import createCampaign from "./createCampaign.png";
+import dashboard from "./dashboard.png";
 import logo from "./logo.svg";
 import logo2 from "./logo2.png";
-import logout from "./logout.svg";
+import logout from "./logout.png";
 import payment from "./payment.svg";
-import profile from "./profile.svg";
+import profile from "./profile.png";
 import sun from "./sun.svg";
-import withdraw from "./withdraw.svg";
+import withdraw from "./withdraw.png";
 import tagType from "./type.svg";
 import search from "./search.svg";
 import money from "./money.svg";
@@ -45,6 +45,9 @@ import rotaract from "./rotaract_blue.png";
 import middday from "./cutted_midday.jpg";
 import prasun from "./prasun.jpg";
 import aleesha from "./aleesha.jpg";
+import fundraising from "./fundraising.png";
+import img_1 from "./img_1.png";
+import volunteering from "./volunteering.png";
 export {
   airbnb,
   bill,
@@ -91,4 +94,7 @@ export {
   kids,
   rotohero,
   sairohan,
+  fundraising,
+  img_1,
+  volunteering,
 };

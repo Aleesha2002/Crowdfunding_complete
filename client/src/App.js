@@ -9,10 +9,12 @@ import {
 import App_homepage from "./App_homepage";
 import App_campaign from "./App_campaign";
 //import App_signup from "./App_signup";
-import { Signup1, StarsCanvas, About, Contact } from "./components";
+import { Signup1, StarsCanvas } from "./components";
 import Login1 from "./components/Login1";
 import { Context } from "./context/Context";
 import { Sidebar, Navbar1 } from "./components";
+import About from "./About";
+import Contact from "./Contact";
 import {
   CampaignDetails,
   CreateCampaign,
