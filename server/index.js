@@ -26,9 +26,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 mongoose
-  .connect(
-    "mongodb+srv://Aleesha2002:Aleesha2002@winter-project.5j1ztug.mongodb.net/crowdfunding?retryWrites=true&w=majority"
-  )
+  .connect(process.env.MONGO_URL, {})
   .then(() => {
     console.log("connected to db");
   })
@@ -72,6 +70,7 @@ app.post("/signup", async (req, res) => {
         email: req.body.email,
         // friends: [],
         password: hash,
+        image:req.body.image,
       });
       console.log(newUser);
       await newUser.save();
