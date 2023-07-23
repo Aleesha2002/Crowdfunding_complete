@@ -5,9 +5,16 @@ import { useStateContext } from "../context";
 import { CustomButton, CountBox, Loader } from "../components";
 import { calculateBarPercentage, daysLeft } from "../utils";
 import { thirdweb } from "../assets";
+import { useParams } from "react-router-dom";
+// import { c } from "maath/dist/index-43782085.esm";
+import { MediaRenderer } from "@thirdweb-dev/react";
+import swal from "sweetalert2";
 
 const CampaignDetails = () => {
   const { state } = useLocation();
+  const { id } = useParams();
+
+  console.log(id);
   const history = useHistory();
   const { donate, getDonations, contract, address, name1, getNames } =
     useStateContext();
@@ -34,8 +41,14 @@ const CampaignDetails = () => {
     setIsLoading(true);
     console.log(state.state.pId);
     await donate(state.state.pId, amount);
-    history.push("/");
+    history.push("/home");
     setIsLoading(false);
+    swal.fire({
+      title: "Success",
+      text: "Donation Successful",
+      icon: "success",
+      confirmButtonText: "Ok",
+    });
   };
 
   return (
@@ -43,9 +56,15 @@ const CampaignDetails = () => {
       {isLoading && <Loader />}
       <div className="w-full flex md:flex-row flex-col mt-10 gap-[30px]">
         <div className="flex-1 flex-col">
-          <img
+          {/* <img
             src={state.state.image}
             alt="campaign"
+            className="w-full h-[410px] object-cover rounded-xl"
+          /> */}
+          <MediaRenderer
+            key={state.state.image}
+            src={state.state.image}
+            type="image"
             className="w-full h-[410px] object-cover rounded-xl"
           />
           <div className="relative w-full h-[5px] bg-[#3a3a43] mt-2">
@@ -128,7 +147,8 @@ const CampaignDetails = () => {
                     className="flex justify-between items-center gap-4"
                   >
                     <p className="font-epilogue font-normal text-[16px] text-[#b2b3bd] leading-[26px] break-11">
-                      {index + 1}. {item.donator}
+                      {index + 1}.name: {item.donator}, wallet address:
+                      {item.donator}
                     </p>
                     <p className="font-epilogue font-normal text-[16px] text-[#808191] leading-[26px] break-11">
                       {item.donation}
@@ -174,7 +194,7 @@ const CampaignDetails = () => {
                   Back it because you believe in it
                 </h4>
                 <p className="mt-[20px] font-epilogue font-normal leading-[22px] text-[#808191]">
-                  Support the project
+                  Support the cause
                 </p>
               </div>
 

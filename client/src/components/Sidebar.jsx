@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react";
 import { Link, useHistory } from "react-router-dom";
-import { logo } from "../assets";
+import { logo, rotaract } from "../assets";
 import { navlinks } from "../constants";
 import { Context } from "../context/Context";
 
@@ -33,7 +33,7 @@ const Sidebar = () => {
   return (
     <div className="flex justify-between items-center flex-col sticky top-5 h-[93vh]">
       <Link to="/">
-        <Icon styles="w-[52px] h-[52px] bg-[#2c2f32]" imgUrl={logo} />
+        <Icon styles="w-[62px] h-[62px] bg-[#2c2f32]" imgUrl={rotaract} />
       </Link>
 
       <div className="flex-1 flexflex-col justify-between items-center bg-[#1c1c24] rounded-[20px] w-[76px] py-4 mt-12">

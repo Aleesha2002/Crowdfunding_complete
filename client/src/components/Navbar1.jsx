@@ -1,15 +1,19 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { CustomButton } from "./";
 import { logo, menu, search, thirdweb } from "../assets";
 import { navlinks } from "../constants";
 import { useStateContext } from "../context";
+import { Context } from "../context/Context";
+import { MediaRenderer } from "@thirdweb-dev/react";
 
 const Navbar1 = () => {
   const history = useHistory();
   const [isActive, setIsActive] = useState("dashboard");
   const [toggleDrawer, setToggleDrawer] = useState(false);
   const { connect, address } = useStateContext();
+  const { user } = useContext(Context);
+  console.log(user.user.name);
 
   return (
     <div className="flex md:flex-row flex-col-reverse justify-between mb-[35px] gap-6">
@@ -19,7 +23,7 @@ const Navbar1 = () => {
           placeholder="Search for campaigns"
           className="flex w-full font-epilogue font-normal text-[14px] placeholder:text-[#4b5264] text-white bg-transparent outline-none"
         />
-        <div className="w-[72px] h-full rounded-[20px] bg-[#4acd8d] flex justify-center items-center cursor-pointer">
+        <div className="w-[72px] h-full rounded-[20px] bg-[#33bbcf] flex justify-center items-center cursor-pointer">
           <img
             src={search}
             alt="search"
@@ -31,20 +35,26 @@ const Navbar1 = () => {
         <CustomButton
           btnType="button"
           title={address ? "Create a campaign" : "Connect"}
-          styles={address ? "bg-[#1dc071]" : "bg-[#8c6dfd]"}
+          styles={address ? "bg-[#33bbcf]" : "bg-[#8c6dfd]"}
           handleClick={() => {
             if (address) history.push("create-campaign");
             else connect();
           }}
         />
         <Link to="/profile">
-          <div className="w-[52px] h-[52px] rounded-full bg-[#2c2f32] flex justify-center items-center cursor-pointer">
-            <img
+          {/* <div className="w-[52px] h-[52px] rounded-full bg-[#2c2f32] flex justify-center items-center cursor-pointer"> */}
+          {/* <img
               src={thirdweb}
               alt="user"
               className="w-[60%] h-[60%] object-contain"
-            />
-          </div>
+            /> */}
+          <MediaRenderer
+            key={user.user.image}
+            src={user.user.image}
+            type="image"
+            style={{ height: "50px", width: "50px", borderRadius: "100%" }}
+          />
+          {/* </div> */}
         </Link>
       </div>
 
